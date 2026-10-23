@@ -1,0 +1,5 @@
+Code license NOT YET GRANTED. Seek coauthor and institutional approval for a suitable open-source license (e.g., MIT) before publication.
+
+Suggested distinct license for independently generated processed numerical data: CC BY 4.0 if authors and any relevant data providers permit redistribution. Third-party genome reference sequences and source-study tables are not included in the public upload packages.
+
+This text is not an open-source license.

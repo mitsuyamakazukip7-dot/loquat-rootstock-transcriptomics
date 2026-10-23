@@ -1,0 +1,4 @@
+"metric","observed","n_pathways","exact_permutation_p","permutations"
+"fixed_GSEA_shared37_reversals",27,37,0.395,400
+"all_shared_KEGG_reversals",86,147,0.425,400
+"all_shared_KEGG_spearman_rho",-0.0465360524068939,147,0.46,400

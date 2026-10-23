@@ -1,0 +1,21 @@
+suppressPackageStartupMessages(library(ggplot2))
+root <- path.expand(Sys.getenv("LOQUAT_PROJECT_ROOT",unset="~/Desktop/LOQUAT_DWARFING_PUBLIC"))
+indir <- file.path(root,'06_meta_analysis','apple2026')
+figdir <- file.path(root,'08_figures','apple2026')
+new <- read.csv(file.path(indir,'DE_new_shoot_PYGD076_vs_M9T337.csv'), stringsAsFactors=FALSE)
+fru <- read.csv(file.path(indir,'DE_fruiting_spur_PYGD076_vs_M9T337.csv'), stringsAsFactors=FALSE)
+x <- merge(new[,c('GENEID','log2FoldChange','padj','symbol','name')], fru[,c('GENEID','log2FoldChange','padj')], by='GENEID', suffixes=c('_new','_fruit'))
+keep <- is.finite(x$log2FoldChange_new) & is.finite(x$log2FoldChange_fruit)
+x <- x[keep,]
+rho <- cor(x$log2FoldChange_new,x$log2FoldChange_fruit,method='spearman')
+r <- cor(x$log2FoldChange_new,x$log2FoldChange_fruit,method='pearson')
+either <- (!is.na(x$padj_new) & x$padj_new<0.05) | (!is.na(x$padj_fruit) & x$padj_fruit<0.05)
+both <- (!is.na(x$padj_new) & x$padj_new<0.05) & (!is.na(x$padj_fruit) & x$padj_fruit<0.05)
+same_all <- mean(sign(x$log2FoldChange_new)==sign(x$log2FoldChange_fruit))
+same_either <- mean(sign(x$log2FoldChange_new[either])==sign(x$log2FoldChange_fruit[either]))
+shared <- x[both & sign(x$log2FoldChange_new)==sign(x$log2FoldChange_fruit),]
+shared$min_abs_lfc <- pmin(abs(shared$log2FoldChange_new),abs(shared$log2FoldChange_fruit))
+shared <- shared[order(-shared$min_abs_lfc),]
+write.csv(shared,file.path(indir,'shared_DE_same_direction.csv'),row.names=FALSE)
+metrics <- data.frame(metric=c('n_genes','spearman_rho','pearson_r','same_direction_all','either_sig_n','same_direction_either_sig','both_sig_same_direction_n'), value=c(nrow(x),rho,r,same_all,sum(either),same_either,nrow(shared)))
+write.csv(metrics,file.path(indir,'cross_tissue_concordance_metrics.csv'),row.names=FALSE)

@@ -1,0 +1,15 @@
+警告メッセージ:
+1: パッケージ ‘limma’ はバージョン 4.5.2 の R の下で造られました 
+2: パッケージ ‘fgsea’ はバージョン 4.5.2 の R の下で造られました 
+Scoring stage 1...
+Scoring stage 2...
+Old result historical all 147 P = 0.425 
+                 subset n_pathways observed_reversals n_permutation tail_ge
+  historical_selected37         37                 27           400     158
+ frozen_full_selected38         38                 28           400     158
+                 all147        147                 86           400     168
+  p_ge observed_rho p_rho_le mean_null_rev sd_null_rev
+ 0.395  -0.15125652    0.250          18.5    10.37782
+ 0.395  -0.16774264    0.260          19.0    10.85147
+ 0.420  -0.03792624    0.465          73.5    25.38387
+HISTORICAL 37 (GSEA) REVERSED 27 

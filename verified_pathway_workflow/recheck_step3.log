@@ -1,0 +1,16 @@
+       subset n_pathways observed cross_stage_unrestricted_perms
+ historical37         37       27                            400
+     frozen38         38       28                            400
+       all147        147       86                            400
+ cross_stage_unrestricted_extreme cross_stage_unrestricted_P
+                              158                      0.395
+                              158                      0.395
+                              168                      0.420
+ coupled_label_perms coupled_label_extreme coupled_label_P mean_cross
+                  20                     8             0.4       18.5
+                  20                     8             0.4       19.0
+                  20                     4             0.2       73.5
+ mean_coupled
+         16.6
+         17.0
+         59.7

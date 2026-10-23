@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "historical37": {
+    "observed": 27,
+    "p": 0.395
+  },
+  "deterministic38": {
+    "observed": 28,
+    "p": 0.395
+  },
+  "all147": {
+    "observed": 86,
+    "p": 0.42
+  }
+}
