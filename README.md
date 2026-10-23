@@ -1,5 +1,4 @@
-# STATUS: 2026-10-23 RC2, NOT AUTHORIZED FOR PUBLICATION
-
+# STATUS: 2026-10-23 RC2, 
 An actual code execution audit found and repaired missing Python os import, a 190 vs 193 collinearity threshold bug (>=8 RBH apple anchors), live KEGG versus frozen mapping, and output symlink overwrite risk. Six DESeq2 tables were regenerated with identical gene IDs and numeric columns; 269/190/24/5 and supplementary tables were independently regenerated. See REPRODUCE_FROM_DATA.md and ENVIRONMENT.md. A public-data, fully reproducible raw-FASTQ -> all-figures workflow on a clean external PC is NOT claimed.
 
 Figure1 BioRender export/license and coauthor licensing permissions are PENDING; do not publish until explicitly approved.
